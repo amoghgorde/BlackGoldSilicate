@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
-import Home from './Home';
+import Home from './home';
 import About from './About';
 import WhyUs from './WhyUs';
 
