@@ -117,28 +117,39 @@ const WhyUs = () => {
           </div>
         </div>
       </section>
+                  
+          {/* NEW VIDEO SHOWCASE SECTION */}
+          <section className="py-24 px-6 max-w-7xl mx-auto">
+            <div className="relative aspect-video rounded-[40px] overflow-hidden border border-white/10 shadow-2xl bg-black group">
+              <iframe
+                className="w-full h-full scale-[1.20]" // Subtle scale to hide YouTube edges
+                /* Parameters:
+                  - autoplay=1 & mute=1: Required for browsers to allow autoplay
+                  - playlist=AsR-c_BvDRg&loop=1: Required to make the video repeat
+                  - controls=0: Hides YouTube player UI for a cleaner 'Apple' look
+                  - rel=0: Prevents showing related videos from other channels
+                */
+                src="https://www.youtube.com/embed/AsR-c_BvDRg?autoplay=1&mute=1&loop=1&playlist=AsR-c_BvDRg&controls=0&rel=0&modestbranding=1"
+                title="Blackgold Operations Showcase"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
 
-      {/* NEW VIDEO SHOWCASE SECTION */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
-        <div className="relative aspect-video rounded-[40px] overflow-hidden border border-white/10 shadow-2xl">
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline 
-            className="w-full h-full object-cover opacity-80"
-          >
-            <source src="/SiteBG.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          {/* Subtle Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
-          <div className="absolute bottom-10 left-10">
-             <p className="text-brandGold font-black uppercase tracking-widest text-xs mb-2">Operational Excellence</p>
-             <h3 className="text-3xl font-bold tracking-tighter uppercase">Metso-Powered Precision.</h3>
-          </div>
-        </div>
-      </section>
+              {/* OVERLAY: 'pointer-events-none' ensures the video remains uninterruptible and visually integrated */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 pointer-events-none" />
+              
+              <div className="absolute bottom-10 left-10 pointer-events-none">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-[1px] bg-brandGold"></div>
+                  <p className="text-brandGold font-black uppercase tracking-[0.3em] text-[10px]">Operational Precision</p>
+                </div>
+                <h3 className="text-4xl md:text-5xl font-black tracking-tighter uppercase leading-none">
+                  Institutional <br/> <span className="text-gray-400 italic font-light">Supply Chain.</span>
+                </h3>
+              </div>
+            </div>
+          </section>
 
       {/* CALL TO ACTION */}
       <footer className="py-24 px-6 text-center">
