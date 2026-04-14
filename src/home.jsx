@@ -105,11 +105,27 @@ const Home = () => {
       <section id="plants" className="py-24 px-6 bg-[#0a0a0a] scroll-mt-16">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-black mb-12 uppercase tracking-tighter">Our Network.</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <LocationCard name="Pune" address="Khed City" />
-            <LocationCard name="Solapur" address="Tale Hipperge" />
-            <LocationCard name="Kolhapur" address="Yaratanhatti" />
-            <LocationCard name="Lonikand" address="Pune District" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <LocationCard 
+              name="Pune" 
+              address="Khed City" 
+              mapUrl="https://maps.google.com/?q=Khed+City+Pune"
+            />
+            <LocationCard 
+              name="Solapur" 
+              address="Tale Hipperge" 
+              mapUrl="https://maps.google.com/?q=Tale+Hipperge+Solapur"
+            />
+            <LocationCard 
+              name="Kolhapur" 
+              address="Yaratanhatti" 
+              mapUrl="https://maps.google.com/?q=Yaratanhatti+Kolhapur"
+            />
+            <LocationCard 
+              name="Lonikand" 
+              address="Pune District" 
+              mapUrl="https://maps.google.com/?q=Lonikand+Pune"
+            />
           </div>
         </div>
       </section>
@@ -189,11 +205,23 @@ const FeatureOverlay = ({ progress, range, title, desc }) => {
   );
 };
 
-const LocationCard = ({ name, address }) => (
-  <div className="p-8 border border-white/5 rounded-3xl bg-white/[0.02] hover:border-brandGold/30 transition-colors group">
-    <MapPin size={20} className="text-brandGold mb-4 group-hover:scale-110 transition-transform" />
-    <h4 className="text-xl font-bold mb-1 uppercase tracking-tight">{name}</h4>
-    <p className="text-sm text-gray-500">{address}</p>
+const LocationCard = ({ name, address, mapUrl }) => (
+  <div className="p-8 border border-white/5 rounded-3xl bg-white/[0.02] hover:border-brandGold/30 transition-all group flex flex-col justify-between h-full">
+    <div>
+      <MapPin size={20} className="text-brandGold mb-4 group-hover:scale-110 transition-transform" />
+      <h4 className="text-xl font-bold mb-1 uppercase tracking-tight">{name}</h4>
+      <p className="text-sm text-gray-500 mb-6">{address}</p>
+    </div>
+    
+    <a 
+      href={mapUrl} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-brandGold hover:text-white transition-colors group/btn"
+    >
+      Get Directions 
+      <ArrowUpRight size={14} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+    </a>
   </div>
 );
 
