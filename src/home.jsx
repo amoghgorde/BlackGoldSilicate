@@ -87,7 +87,7 @@ const Home = () => {
               poster="/stone_crusher_bg.png"
               className="w-full h-full object-cover opacity-60 contrast-125 saturate-150"
             >
-              <source src="/SiteBG.mp4" type="video/mp4" />
+              <source src="/public/SiteBG.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
           </motion.div>
