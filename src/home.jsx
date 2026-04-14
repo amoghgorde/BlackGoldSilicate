@@ -1,23 +1,21 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { MapPin, CheckCircle, MessageSquare, Award, ArrowUpRight } from 'lucide-react';
+import { MapPin, MessageSquare, Award, ArrowUpRight } from 'lucide-react';
 
 const BRAND = {
   name: "BLACKGOLD",
   accent: "SILICATES",
   sub: "PRIVATE LIMITED & GROUP",
   phone: "+91 99880 75555",
-  email: "blackgoldsilicates@gmail.com",
-  formspree_url: "https://formspree.io/f/your-id-here" 
+  email: "blackgoldsilicates@gmail.com"
 };
 
 const Home = () => {
   const containerRef = useRef(null);
-  const [submitted, setSubmitted] = useState(false);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
   
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1.1, 0.9]);
+  const videoScale = useTransform(scrollYProgress, [0, 1], [1.1, 0.9]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
 
   return (
@@ -27,7 +25,7 @@ const Home = () => {
       <nav className="fixed top-0 w-full z-[100] backdrop-blur-xl bg-black/60 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           
-          <Link to="/" className="flex items-center gap-3 group text-left">
+          <Link to="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 flex items-center justify-center overflow-hidden">
               <img 
                 src="/BS_logo.png" 
@@ -45,14 +43,14 @@ const Home = () => {
             </div>
           </Link>
 
-        <div className="hidden md:flex gap-8 text-[10px] uppercase tracking-widest font-bold text-gray-400">
-          <Link to="/about" className="hover:text-white transition">About Us</Link>
-          {/* ADD THIS LINE BELOW */}
-          <Link to="/why-us" className="hover:text-white transition">Why Us</Link> 
-          <a href="#tech" className="hover:text-white transition">Technology</a>
-          <a href="#products" className="hover:text-white transition text-brandGold">Catalogue</a>
-          <a href="#plants" className="hover:text-white transition">Plants</a>
-        </div>
+          <div className="hidden md:flex gap-8 text-[10px] uppercase tracking-widest font-bold text-gray-400">
+            <Link to="/about" className="hover:text-white transition">About Us</Link>
+            <Link to="/why-us" className="hover:text-white transition">Why Us</Link> 
+            <a href="#tech" className="hover:text-white transition">Technology</a>
+            <a href="#products" className="hover:text-white transition text-brandGold">Catalogue</a>
+            <a href="#plants" className="hover:text-white transition">Plants</a>
+          </div>
+
           <a href={`tel:${BRAND.phone}`} className="bg-white text-black px-5 py-2 rounded-full text-xs font-bold hover:bg-brandGold transition uppercase tracking-tighter">
             Contact MD
           </a>
@@ -69,7 +67,7 @@ const Home = () => {
             Trust in <br /> <span className="text-gray-500 font-light italic text-5xl md:text-8xl">Aggregates.</span>
           </h1>
           <p className="max-w-3xl mx-auto text-lg text-gray-400 font-light">
-            Managed by <b>Chartered Accountants</b>. 18+ Lakh Tonnes Annual Capacity.
+             18+ Lakh Tonnes Annual Capacity.
           </p>
           <Link to="/about" className="mt-10 inline-flex items-center gap-2 group text-xs font-bold uppercase tracking-widest text-white hover:text-brandGold transition">
               View Management Profile <ArrowUpRight size={16} />
@@ -77,15 +75,20 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* SECTION 4: TECHNOLOGY (SCROLL ENGINE) */}
+      {/* SECTION 4: VIDEO BACKDROP ENGINE */}
       <section ref={containerRef} id="tech" className="h-[400vh] relative scroll-mt-20">
         <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
-          <motion.div style={{ scale: imageScale }} className="relative w-full h-full">
-            <img 
-              src="/stone_crusher_bg.png" 
-              className="w-full h-full object-cover opacity-60 contrast-125 saturate-150" 
-              alt="Crushing Plant" 
-            />
+          <motion.div style={{ scale: videoScale }} className="relative w-full h-full">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster="/stone_crusher_bg.png"
+              className="w-full h-full object-cover opacity-60 contrast-125 saturate-150"
+            >
+              <source src="/SiteBG.mp4" type="video/mp4" />
+            </video>
             <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
           </motion.div>
           <div className="absolute inset-0 pointer-events-none">
@@ -109,7 +112,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SECTION 6: CATALOGUE & SEGMENTS */}
+      {/* SECTION 6: CATALOGUE */}
       <section id="products" className="scroll-mt-16 py-32 px-6 bg-white text-black rounded-t-[50px]">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20">
@@ -158,12 +161,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SECTION 7: FOOTER */}
+      {/* FOOTER */}
       <footer id="contact" className="py-24 px-6 border-t border-white/10">
         <div className="max-w-7xl mx-auto text-center">
           <h3 className="text-4xl font-bold mb-4 uppercase tracking-tighter">Partner with the Group.</h3>
           <p className="text-gray-500 mb-8 font-medium tracking-wide">{BRAND.email}</p>
-          <a href={`https://wa.me/${BRAND.phone.replace(/\D/g,'')}`} className="bg-[#25D366] px-8 py-4 rounded-full font-bold inline-flex items-center gap-2 hover:scale-105 transition-transform active:scale-95">
+          <a href={`https://wa.me/${BRAND.phone.replace(/\D/g,'')}`} className="bg-[#25D366] px-8 py-4 rounded-full font-bold inline-flex items-center gap-2 hover:scale-105 transition-transform">
             <MessageSquare size={20} /> WhatsApp Inquiry
           </a>
         </div>
@@ -172,7 +175,7 @@ const Home = () => {
   );
 };
 
-// --- HELPER COMPONENTS ---
+// --- HELPER COMPONENTS (Place outside main component) ---
 
 const FeatureOverlay = ({ progress, range, title, desc }) => {
   const opacity = useTransform(progress, [range[0], (range[0] + range[1]) / 2, range[1]], [0, 1, 0]);
