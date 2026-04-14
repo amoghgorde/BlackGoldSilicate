@@ -72,7 +72,6 @@ const WhyUs = () => {
       <section className="py-24 px-6 bg-white text-black rounded-t-[50px] mt-20">
         <div className="max-w-7xl mx-auto">
           
-          {/* PRODUCT SPECS TABLE */}
           <TechnicalTable 
             title="01. Product Catalogue"
             headers={['Product Type', 'Size', 'Key Application']}
@@ -86,7 +85,6 @@ const WhyUs = () => {
             ]}
           />
 
-          {/* METSO TECH TABLE */}
           <TechnicalTable 
             title="02. Metso Outotec — Top-Tier Crushing"
             headers={['Stage', 'Equipment', 'Capacity', 'Key Advantage']}
@@ -98,7 +96,6 @@ const WhyUs = () => {
             ]}
           />
 
-          {/* WEIR WASHING TABLE */}
           <TechnicalTable 
             title="03. Weir Minerals — Sand Washing"
             headers={['Component', 'Function', 'Benefit to Customer']}
@@ -110,7 +107,6 @@ const WhyUs = () => {
             ]}
           />
 
-          {/* QUALITY ASSURANCE BOX */}
           <div className="mt-20 p-10 bg-gray-50 border border-gray-100 rounded-[40px]">
             <h4 className="text-3xl font-black tracking-tighter mb-6 uppercase">Quality Assurance</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -118,6 +114,28 @@ const WhyUs = () => {
               <QualityPoint title="Deccan Trap Basalt" desc="Solid density 2.7 t/m³; UCS > 150 MPa." />
               <QualityPoint title="Cubical Particle Shape" desc="Flakiness & Elongation Index < 25%." />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEW VIDEO SHOWCASE SECTION */}
+      <section className="py-24 px-6 max-w-7xl mx-auto">
+        <div className="relative aspect-video rounded-[40px] overflow-hidden border border-white/10 shadow-2xl">
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline 
+            className="w-full h-full object-cover opacity-80"
+          >
+            <source src="/SiteBG.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          {/* Subtle Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+          <div className="absolute bottom-10 left-10">
+             <p className="text-brandGold font-black uppercase tracking-widest text-xs mb-2">Operational Excellence</p>
+             <h3 className="text-3xl font-bold tracking-tighter uppercase">Metso-Powered Precision.</h3>
           </div>
         </div>
       </section>
@@ -135,7 +153,6 @@ const WhyUs = () => {
 };
 
 // --- HELPERS ---
-
 const AdvantageItem = ({ title, desc }) => (
   <div className="group border-l border-brandGold/30 pl-8 hover:border-brandGold transition-colors">
     <h3 className="text-2xl font-bold tracking-tight mb-3 uppercase leading-none">{title}</h3>
