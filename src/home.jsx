@@ -81,16 +81,16 @@ const Home = () => {
       <section ref={containerRef} id="tech" className="h-[400vh] relative scroll-mt-20">
         <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
           <motion.div style={{ scale: videoScale }} className="relative w-full h-full">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              poster="/stone_crusher_bg.png"
-              className="w-full h-full object-cover opacity-60 contrast-125 saturate-150"
-            >
-              <source src="/SiteBG.mp4" type="video/mp4" />
-            </video>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto" 
+            poster="/stone_crusher_bg.png"
+            className="w-full h-full object-cover opacity-60 contrast-125 saturate-150 will-change-transform">
+            <source src="/SiteBG.mp4" type="video/mp4" />
+          </video>
             <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
           </motion.div>
           <div className="absolute inset-0 pointer-events-none">
