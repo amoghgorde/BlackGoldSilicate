@@ -26,7 +26,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 flex items-center justify-center overflow-hidden">
+            <div className="w-10 h-10 flex items-center justify-center overflow-x-hidden">
               <img 
                 src="/BS_logo.png" 
                 alt="Blackgold Logo" 
