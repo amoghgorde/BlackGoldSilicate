@@ -80,21 +80,6 @@ const Home = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative h-screen flex flex-col items-center justify-center text-center px-6">
-        <motion.div style={{ opacity: heroOpacity }}>
-          <div className="inline-flex items-center gap-2 px-3 py-1 border border-brandGold/30 rounded-full text-[10px] font-bold text-brandGold uppercase tracking-widest mb-6">
-            <Award size={12} /> Powered by Metso Outotec Finland
-          </div>
-          <h1 className="text-6xl md:text-[100px] font-black tracking-tighter leading-[0.9] mb-8 uppercase">
-            Trust in <br /> <span className="text-gray-500 font-light italic text-5xl md:text-8xl">Aggregates.</span>
-          </h1>
-          <p className="max-w-3xl mx-auto text-lg text-gray-400 font-light">
-            Managed by <b>Chartered Accountants</b>. 1.8M+ Tonnes Annual Capacity.
-          </p>
-        </motion.div>
-      </section>
-
       {/* SECTION 3: HERO */}
       <section className="relative h-screen flex flex-col items-center justify-center text-center px-6">
         <motion.div style={{ opacity: heroOpacity }}>
