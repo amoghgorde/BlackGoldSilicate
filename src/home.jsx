@@ -102,19 +102,11 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* SECTION 4: TECHNOLOGY (SCROLL ENGINE) */}
-      <section 
-        ref={containerRef} 
-        id="tech" 
-        className="relative h-[400vh] bg-black z-10"
-      >
-        {/* THE TRACK: 
-            'sticky top-0' locks this div to the top of the screen.
-            'h-screen' makes it fill the viewport while the parent (400vh) scrolls.
-        */}
-        <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
-          
-          {/* VIDEO BACKDROP - Stays in place, only scales */}
+      {/* SECTION 4: TECHNOLOGY (LOCKED VIDEO + SCROLLING TEXT) */}
+      <section ref={containerRef} id="tech" className="relative h-[300vh] bg-black">
+        
+        {/* THE FIXED BACKDROP: This locks the video to the screen */}
+        <div className="sticky top-0 h-screen w-full overflow-hidden">
           <motion.div 
             style={{ scale: videoScale }} 
             className="absolute inset-0 w-full h-full transform-gpu"
@@ -125,40 +117,48 @@ const Home = () => {
               muted
               playsInline
               preload="auto"
-              poster="/stone_crusher_bg.png"
-              className="w-full h-full object-cover opacity-50 contrast-125 saturate-150"
+              className="w-full h-full object-cover opacity-40 contrast-125 saturate-150"
             >
               <source src="/SiteBG.mp4" type="video/mp4" />
             </video>
-            
-            {/* Visual Gradients to smooth transitions between sections */}
+            {/* Dark overlay to ensure white text is readable while scrolling */}
+            <div className="absolute inset-0 bg-black/40" />
             <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
           </motion.div>
+        </div>
       
-          {/* CONTENT OVERLAYS - These fade in/out while video stays fixed */}
-          <div className="relative z-20 w-full h-full pointer-events-none">
-            <FeatureOverlay 
-              progress={scrollYProgress} 
-              range={[0.1, 0.25]} 
-              title="Deccan Basalt" 
-              desc="2.7 t/m³ density for ultimate durability." 
-            />
-            <FeatureOverlay 
-              progress={scrollYProgress} 
-              range={[0.4, 0.6]} 
-              title="Metso Tech" 
-              desc="Superior cubical shape with Nordberg Series." 
-            />
-            <FeatureOverlay 
-              progress={scrollYProgress} 
-              range={[0.75, 0.95]} 
-              title="CA Managed" 
-              desc="100% Transparency & GST Compliance." 
-            />
+        {/* THE SCROLLING OVERLAYS: These move UP as you scroll */}
+        <div className="relative z-20 mt-[-100vh]">
+          {/* Each div is h-screen to space them out across the 300vh parent */}
+          <div className="h-screen flex flex-col items-center justify-center text-center px-6">
+            <h3 className="text-7xl md:text-9xl font-black uppercase tracking-tighter italic text-white drop-shadow-2xl">
+              Deccan Basalt
+            </h3>
+            <p className="text-brandGold text-xl md:text-3xl font-bold uppercase tracking-[0.4em] mt-4">
+              2.7 t/m³ density for ultimate durability.
+            </p>
+          </div>
+      
+          <div className="h-screen flex flex-col items-center justify-center text-center px-6">
+            <h3 className="text-7xl md:text-9xl font-black uppercase tracking-tighter italic text-white drop-shadow-2xl">
+              Metso Tech
+            </h3>
+            <p className="text-brandGold text-xl md:text-3xl font-bold uppercase tracking-[0.4em] mt-4">
+              Superior cubical shape with Nordberg Series.
+            </p>
+          </div>
+      
+          <div className="h-screen flex flex-col items-center justify-center text-center px-6">
+            <h3 className="text-7xl md:text-9xl font-black uppercase tracking-tighter italic text-white drop-shadow-2xl">
+              CA Managed
+            </h3>
+            <p className="text-brandGold text-xl md:text-3xl font-bold uppercase tracking-[0.4em] mt-4">
+              100% Transparency & GST Compliance.
+            </p>
           </div>
         </div>
       </section>
-
+      
       {/* SECTION 5 & 6 WRAPPER */}
       <div className="relative z-30 bg-black">
         {/* SECTION 5: PLANTS */}
