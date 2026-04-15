@@ -4,10 +4,6 @@ import { Link } from 'react-router-dom';
 import { MapPin, MessageSquare, Award, ArrowUpRight } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
 
-const Home = () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
   useEffect(() => {
     const controlNavbar = () => {
       if (window.scrollY > lastScrollY && window.scrollY > 100) {
@@ -33,6 +29,8 @@ const BRAND = {
 };
 
 const Home = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
   
