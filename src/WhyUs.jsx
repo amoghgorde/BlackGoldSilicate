@@ -129,7 +129,7 @@ const WhyUs = () => {
                   - controls=0: Hides YouTube player UI for a cleaner 'Apple' look
                   - rel=0: Prevents showing related videos from other channels
                 */
-                src="https://www.youtube.com/embed/xHs6kUX9gU?autoplay=1&mute=1&loop=1&playlist=AsR-c_BvDRg&controls=0&rel=0&modestbranding=1"
+                src="https://www.youtube.com/embed/-xHs6kUX9gU?autoplay=1&mute=1&loop=1&playlist=AsR-c_BvDRg&controls=0&rel=0&modestbranding=1"
                 title="Blackgold Operations Showcase"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
