@@ -109,22 +109,22 @@ const Home = () => {
             <LocationCard 
               name="Pune" 
               address="Khed City" 
-              mapUrl="https://maps.google.com/?q=Khed+City+Pune"
+              mapUrl="https://maps.app.goo.gl/sLBhp8vXt6KMQptf6"
             />
             <LocationCard 
               name="Solapur" 
               address="Tale Hipperge" 
-              mapUrl="https://maps.google.com/?q=Tale+Hipperge+Solapur"
+              mapUrl="https://maps.app.goo.gl/Gxn6UYSH7nehVwmBA"
             />
             <LocationCard 
               name="Kolhapur" 
               address="Yaratanhatti" 
-              mapUrl="https://maps.google.com/?q=Yaratanhatti+Kolhapur"
+              mapUrl="https://maps.app.goo.gl/x5AyLGjzU7Xv8nMi9"
             />
             <LocationCard 
               name="Lonikand" 
               address="Pune District" 
-              mapUrl="https://maps.google.com/?q=Lonikand+Pune"
+              mapUrl="https://maps.app.goo.gl/xCFoNn51vfZJtaiMA"
             />
           </div>
         </div>
