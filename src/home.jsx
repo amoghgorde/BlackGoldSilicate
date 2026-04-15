@@ -100,64 +100,26 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* SECTION 4: TECHNOLOGY (SCROLL ENGINE) */}
-      <section 
-        ref={containerRef} 
-        id="tech" 
-        className="relative h-[400vh] bg-black z-10"
-      >
-        {/* STICKY CONTAINER 
-            'top-0' locks it to the viewport. 
-            'h-screen' ensures it fills the window during the 400vh scroll.
-        */}
-        <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
-          
-          {/* VIDEO BACKDROP */}
-          <motion.div 
-            style={{ scale: videoScale }} 
-            className="relative w-full h-full will-change-transform"
-          >
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              poster="/stone_crusher_bg.png"
-              className="w-full h-full object-cover opacity-50 contrast-125 saturate-150"
-            >
-              <source src="/SiteBG.mp4" type="video/mp4" />
-            </video>
-            
-            {/* GRADIENT OVERLAY - Improved for text legibility */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
-            <div className="absolute inset-0 bg-black/20" /> 
-          </motion.div>
-      
-          {/* FEATURE TEXT OVERLAYS */}
-          <div className="absolute inset-0 pointer-events-none z-20">
-            <FeatureOverlay 
-              progress={scrollYProgress} 
-              range={[0.1, 0.28]} 
-              title="Deccan Basalt" 
-              desc="2.7 t/m³ density for ultimate durability." 
-            />
-            <FeatureOverlay 
-              progress={scrollYProgress} 
-              range={[0.42, 0.62]} 
-              title="Metso Tech" 
-              desc="Superior cubical shape with Nordberg Series." 
-            />
-            <FeatureOverlay 
-              progress={scrollYProgress} 
-              range={[0.78, 0.98]} 
-              title="CA Managed" 
-              desc="100% Transparency & GST Compliance." 
-            />
-          </div>
-        </div>
-      </section>
+{/* SECTION 4: TECHNOLOGY */}
+<section ref={containerRef} id="tech" className="relative h-[400vh] bg-black">
+  <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+    
+    {/* VIDEO (Lower Z-Index) */}
+    <motion.div style={{ scale: videoScale }} className="absolute inset-0 z-0">
+      <video autoPlay loop muted playsInline className="w-full h-full object-cover opacity-50">
+        <source src="/SiteBG.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+    </motion.div>
 
+    {/* TEXT OVERLAYS (Higher Z-Index) */}
+    <div className="relative z-10 w-full h-full pointer-events-none">
+      <FeatureOverlay progress={scrollYProgress} range={[0.1, 0.25]} title="Deccan Basalt" desc="2.7 t/m³ density." />
+      <FeatureOverlay progress={scrollYProgress} range={[0.4, 0.6]} title="Metso Tech" desc="Superior cubical shape." />
+      <FeatureOverlay progress={scrollYProgress} range={[0.75, 0.95]} title="CA Managed" desc="100% Transparency." />
+    </div>
+  </div>
+</section>
       {/* SECTION 5: PLANTS */}
       <section id="plants" className="py-24 px-6 bg-[#0a0a0a] scroll-mt-16">
         <div className="max-w-7xl mx-auto">
