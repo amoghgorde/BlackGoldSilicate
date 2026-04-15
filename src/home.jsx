@@ -2,6 +2,27 @@ import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MapPin, MessageSquare, Award, ArrowUpRight } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+
+const Home = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const controlNavbar = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 100) {
+        // If scrolling down and past 100px, hide
+        setIsVisible(false);
+      } else {
+        // If scrolling up, show
+        setIsVisible(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', controlNavbar);
+    return () => window.removeEventListener('scroll', controlNavbar);
+  }, [lastScrollY]);
 
 const BRAND = {
   name: "BLACKGOLD",
