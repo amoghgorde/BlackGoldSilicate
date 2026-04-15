@@ -60,7 +60,7 @@ const Home = () => {
       
           {/* CONTACT CTA */}
           <a href={`tel:${BRAND.phone}`} className="bg-white text-black px-8 py-3.5 rounded-full text-[11px] font-black uppercase tracking-widest hover:bg-brandGold hover:scale-105 transition-all duration-300 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-            Contact MD
+            Contact Us
           </a>
         </div>
       </nav>
