@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MapPin, MessageSquare, Award, ArrowUpRight } from 'lucide-react';
-import React, { useState, useEffect, useRef } from 'react';
+
 
   useEffect(() => {
     const controlNavbar = () => {
