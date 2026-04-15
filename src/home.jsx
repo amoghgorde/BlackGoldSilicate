@@ -215,11 +215,24 @@ const Home = () => {
 // --- HELPER COMPONENTS (Place outside main component) ---
 
 const FeatureOverlay = ({ progress, range, title, desc }) => {
-  const opacity = useTransform(progress, [range[0], (range[0] + range[1]) / 2, range[1]], [0, 1, 0]);
+  // We use 4 points: [start_fading_in, fully_visible, start_fading_out, fully_hidden]
+  const opacity = useTransform(
+    progress, 
+    [range[0], range[0] + 0.05, range[1] - 0.05, range[1]], 
+    [0, 1, 1, 0]
+  );
+
   return (
-    <motion.div style={{ opacity }} className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-      <h3 className="text-6xl md:text-8xl font-black mb-4 uppercase tracking-tighter italic">{title}</h3>
-      <p className="text-brandGold text-lg md:text-2xl font-bold uppercase tracking-widest">{desc}</p>
+    <motion.div 
+      style={{ opacity }} 
+      className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
+    >
+      <h3 className="text-6xl md:text-8xl font-black mb-4 uppercase tracking-tighter italic text-white shadow-2xl">
+        {title}
+      </h3>
+      <p className="text-brandGold text-lg md:text-2xl font-bold uppercase tracking-[0.3em]">
+        {desc}
+      </p>
     </motion.div>
   );
 };
