@@ -43,17 +43,18 @@ const Home = () => {
     <div className="bg-black text-white font-sans selection:bg-brandGold selection:text-black scroll-smooth">
       
       {/* SECTION 2: NAVIGATION */}
-      <nav className="fixed top-0 left-1/2 -translate-x-1/2 w-[1280px] z-[100] backdrop-blur-md bg-black/40 border-b border-white/5">
+      <nav className={`fixed top-0 left-1/2 -translate-x-1/2 w-[1280px] z-[100] backdrop-blur-md bg-black/40 border-b border-white/5 transition-transform duration-500 ease-in-out ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}>
         <div className="max-w-7xl mx-auto px-10 h-24 flex items-center justify-between">
           
           {/* SEAMLESS LOGO GROUP */}
           <Link to="/" className="flex items-center gap-5 group">
-            {/* Container is now invisible with no padding or borders */}
             <div className="w-16 h-16 flex items-center justify-center bg-transparent">
               <img 
                 src="/BS_logo.png" 
                 alt="Blackgold Logo" 
-                className="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(212,175,55,0.3)] group-hover:scale-105 transition-all duration-700 ease-in-out"
+                className="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(212,175,55,0.3)] group-hover:scale-105 transition-all duration-700"
               />
             </div>
             
@@ -72,16 +73,16 @@ const Home = () => {
       
           {/* NAVIGATION LINKS */}
           <div className="flex gap-12 text-[11px] uppercase tracking-[0.25em] font-bold text-gray-400">
-            <Link to="/about" className="hover:text-brandGold transition-colors duration-300">About Us</Link>
-            <Link to="/why-us" className="hover:text-brandGold transition-colors duration-300">Why Us</Link> 
-            <a href="#tech" className="hover:text-white transition-colors duration-300">Technology</a>
-            <a href="#products" className="hover:text-brandGold transition-colors duration-300">Catalogue</a>
-            <a href="#plants" className="hover:text-white transition-colors duration-300">Plants</a>
+            <Link to="/about" className="hover:text-brandGold transition-colors">About Us</Link>
+            <Link to="/why-us" className="hover:text-brandGold transition-colors">Why Us</Link> 
+            <a href="#tech" className="hover:text-white transition-colors">Technology</a>
+            <a href="#products" className="hover:text-brandGold transition-colors">Catalogue</a>
+            <a href="#plants" className="hover:text-white transition-colors">Plants</a>
           </div>
       
           {/* CONTACT CTA */}
-          <a href={`tel:${BRAND.phone}`} className="bg-white text-black px-8 py-3.5 rounded-full text-[11px] font-black uppercase tracking-widest hover:bg-brandGold hover:scale-105 transition-all duration-300 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-            Contact Us
+          <a href={`tel:${BRAND.phone}`} className="bg-white text-black px-8 py-3.5 rounded-full text-[11px] font-black uppercase tracking-widest hover:bg-brandGold hover:scale-105 transition-all shadow-lg">
+            Contact MD
           </a>
         </div>
       </nav>
