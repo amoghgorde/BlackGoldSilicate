@@ -26,13 +26,13 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 flex items-center justify-center overflow-x-hidden">
-              <img 
-                src="/BS_logo.png" 
-                alt="Blackgold Logo" 
-                className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
+          <div className="w-16 h-16 flex items-center justify-center bg-transparent overflow-hidden">
+            <img 
+              src="/BS_logo.png" 
+              alt="Blackgold Logo" 
+              className="w-full h-full object-contain block group-hover:scale-110 transition-transform duration-500"
+            />
+          </div>
             <div className="flex flex-col leading-none">
               <span className="font-black text-xl tracking-tighter uppercase">
                 {BRAND.name} <span className="text-brandGold">{BRAND.accent}</span>
