@@ -105,11 +105,27 @@ const Home = () => {
       <section id="plants" className="py-24 px-6 bg-[#0a0a0a] scroll-mt-16">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-black mb-12 uppercase tracking-tighter">Our Network.</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <LocationCard name="Pune" address="Khed City" />
-            <LocationCard name="Solapur" address="Tale Hipperge" />
-            <LocationCard name="Kolhapur" address="Yaratanhatti" />
-            <LocationCard name="Lonikand" address="Pune District" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <LocationCard 
+              name="Pune" 
+              address="Khed City" 
+              mapUrl="https://maps.google.com/?q=Khed+City+Pune"
+            />
+            <LocationCard 
+              name="Solapur" 
+              address="Tale Hipperge" 
+              mapUrl="https://maps.google.com/?q=Tale+Hipperge+Solapur"
+            />
+            <LocationCard 
+              name="Kolhapur" 
+              address="Yaratanhatti" 
+              mapUrl="https://maps.google.com/?q=Yaratanhatti+Kolhapur"
+            />
+            <LocationCard 
+              name="Lonikand" 
+              address="Pune District" 
+              mapUrl="https://maps.google.com/?q=Lonikand+Pune"
+            />
           </div>
         </div>
       </section>
