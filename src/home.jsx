@@ -21,45 +21,49 @@ const Home = () => {
   return (
     <div className="bg-black text-white font-sans selection:bg-brandGold selection:text-black scroll-smooth">
       
-        {/* SECTION 2: NAVIGATION */}
-        <nav className="fixed top-0 left-1/2 -translate-x-1/2 w-[1280px] z-[100] backdrop-blur-xl bg-black/60 border-b border-white/5">
-          <div className="max-w-7xl mx-auto px-10 h-20 flex items-center justify-between">
-            
-        {/* LOGO GROUP - Professionally Scaled */}
-        <Link to="/" className="flex items-center gap-4 group">
-          <div className="w-14 h-14 flex items-center justify-center overflow-hidden bg-white/5 rounded-xl p-1.5 border border-white/10 group-hover:border-brandGold/50 transition-all duration-500">
-            <img 
-              src="/BS_logo.png" 
-              alt="Blackgold Logo" 
-              className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-            />
-          </div>
+      {/* SECTION 2: NAVIGATION */}
+      <nav className="fixed top-0 left-1/2 -translate-x-1/2 w-[1280px] z-[100] backdrop-blur-md bg-black/40 border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-10 h-24 flex items-center justify-between">
           
-          <div className="flex flex-col leading-none">
-            <span className="font-black text-2xl tracking-tighter uppercase">
-              {BRAND.name} <span className="text-brandGold">{BRAND.accent}</span>
-            </span>
-            <span className="text-[9px] tracking-[0.3em] text-gray-500 font-bold uppercase mt-1">
-              {BRAND.sub}
-            </span>
+          {/* SEAMLESS LOGO GROUP */}
+          <Link to="/" className="flex items-center gap-5 group">
+            {/* Container is now invisible with no padding or borders */}
+            <div className="w-16 h-16 flex items-center justify-center bg-transparent">
+              <img 
+                src="/BS_logo.png" 
+                alt="Blackgold Logo" 
+                className="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(212,175,55,0.3)] group-hover:scale-105 transition-all duration-700 ease-in-out"
+              />
+            </div>
+            
+            <div className="flex flex-col gap-0.5">
+              <span className="font-black text-3xl tracking-tighter uppercase text-white leading-none">
+                {BRAND.name}<span className="text-brandGold ml-1">{BRAND.accent}</span>
+              </span>
+              <div className="flex items-center gap-2">
+                 <div className="h-[1px] w-4 bg-brandGold/50"></div>
+                 <span className="text-[10px] tracking-[0.4em] text-gray-500 font-bold uppercase">
+                   {BRAND.sub}
+                 </span>
+              </div>
+            </div>
+          </Link>
+      
+          {/* NAVIGATION LINKS */}
+          <div className="flex gap-12 text-[11px] uppercase tracking-[0.25em] font-bold text-gray-400">
+            <Link to="/about" className="hover:text-brandGold transition-colors duration-300">About Us</Link>
+            <Link to="/why-us" className="hover:text-brandGold transition-colors duration-300">Why Us</Link> 
+            <a href="#tech" className="hover:text-white transition-colors duration-300">Technology</a>
+            <a href="#products" className="hover:text-brandGold transition-colors duration-300">Catalogue</a>
+            <a href="#plants" className="hover:text-white transition-colors duration-300">Plants</a>
           </div>
-        </Link>
-    
-        {/* NAVIGATION LINKS */}
-        <div className="flex gap-10 text-[11px] uppercase tracking-[0.2em] font-bold text-gray-400">
-          <Link to="/about" className="hover:text-white transition">About Us</Link>
-          <Link to="/why-us" className="hover:text-white transition">Why Us</Link> 
-          <a href="#tech" className="hover:text-white transition">Technology</a>
-          <a href="#products" className="hover:text-white transition text-brandGold">Catalogue</a>
-          <a href="#plants" className="hover:text-white transition">Plants</a>
+      
+          {/* CONTACT CTA */}
+          <a href={`tel:${BRAND.phone}`} className="bg-white text-black px-8 py-3.5 rounded-full text-[11px] font-black uppercase tracking-widest hover:bg-brandGold hover:scale-105 transition-all duration-300 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+            Contact MD
+          </a>
         </div>
-    
-        {/* CONTACT CTA */}
-        <a href={`tel:${BRAND.phone}`} className="bg-white text-black px-6 py-3 rounded-full text-xs font-black hover:bg-brandGold transition-all uppercase tracking-widest shadow-lg shadow-white/5">
-          Contact MD
-        </a>
-      </div>
-    </nav>
+      </nav>
       
       {/* SECTION 3: HERO */}
       <section className="relative h-screen flex flex-col items-center justify-center text-center px-6">
