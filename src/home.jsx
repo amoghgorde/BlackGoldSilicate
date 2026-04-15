@@ -3,23 +3,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MapPin, MessageSquare, Award, ArrowUpRight } from 'lucide-react';
 
-
-  useEffect(() => {
-    const controlNavbar = () => {
-      if (window.scrollY > lastScrollY && window.scrollY > 100) {
-        // If scrolling down and past 100px, hide
-        setIsVisible(false);
-      } else {
-        // If scrolling up, show
-        setIsVisible(true);
-      }
-      setLastScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', controlNavbar);
-    return () => window.removeEventListener('scroll', controlNavbar);
-  }, [lastScrollY]);
-
 const BRAND = {
   name: "BLACKGOLD",
   accent: "SILICATES",
@@ -37,8 +20,23 @@ const Home = () => {
   const videoScale = useTransform(scrollYProgress, [0, 1], [1.1, 0.9]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
 
+  // Navbar Control Logic - Now correctly inside the component
+  useEffect(() => {
+    const controlNavbar = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 100) {
+        setIsVisible(false); // Hide on scroll down
+      } else {
+        setIsVisible(true);  // Show on scroll up
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', controlNavbar);
+    return () => window.removeEventListener('scroll', controlNavbar);
+  }, [lastScrollY]);
+
   return (
-    <div className="bg-black text-white font-sans selection:bg-brandGold selection:text-black scroll-smooth">
+    <div className="bg-black text-white font-sans selection:bg-brandGold selection:text-black scroll-smooth overflow-x-hidden">
       
       {/* SECTION 2: NAVIGATION */}
       <nav className={`fixed top-0 left-1/2 -translate-x-1/2 w-[1280px] z-[100] backdrop-blur-md bg-black/40 border-b border-white/5 transition-transform duration-500 ease-in-out ${
@@ -46,7 +44,6 @@ const Home = () => {
       }`}>
         <div className="max-w-7xl mx-auto px-10 h-24 flex items-center justify-between">
           
-          {/* SEAMLESS LOGO GROUP */}
           <Link to="/" className="flex items-center gap-5 group">
             <div className="w-16 h-16 flex items-center justify-center bg-transparent">
               <img 
@@ -68,8 +65,7 @@ const Home = () => {
               </div>
             </div>
           </Link>
-      
-          {/* NAVIGATION LINKS */}
+
           <div className="flex gap-12 text-[11px] uppercase tracking-[0.25em] font-bold text-gray-400">
             <Link to="/about" className="hover:text-brandGold transition-colors">About Us</Link>
             <Link to="/why-us" className="hover:text-brandGold transition-colors">Why Us</Link> 
@@ -77,13 +73,33 @@ const Home = () => {
             <a href="#products" className="hover:text-brandGold transition-colors">Catalogue</a>
             <a href="#plants" className="hover:text-white transition-colors">Plants</a>
           </div>
-      
-          {/* CONTACT CTA */}
+
           <a href={`tel:${BRAND.phone}`} className="bg-white text-black px-8 py-3.5 rounded-full text-[11px] font-black uppercase tracking-widest hover:bg-brandGold hover:scale-105 transition-all shadow-lg">
             Contact MD
           </a>
         </div>
       </nav>
+
+      {/* Hero Section */}
+      <section className="relative h-screen flex flex-col items-center justify-center text-center px-6">
+        <motion.div style={{ opacity: heroOpacity }}>
+          <div className="inline-flex items-center gap-2 px-3 py-1 border border-brandGold/30 rounded-full text-[10px] font-bold text-brandGold uppercase tracking-widest mb-6">
+            <Award size={12} /> Powered by Metso Outotec Finland
+          </div>
+          <h1 className="text-6xl md:text-[100px] font-black tracking-tighter leading-[0.9] mb-8 uppercase">
+            Trust in <br /> <span className="text-gray-500 font-light italic text-5xl md:text-8xl">Aggregates.</span>
+          </h1>
+          <p className="max-w-3xl mx-auto text-lg text-gray-400 font-light">
+            Managed by <b>Chartered Accountants</b>. 1.8M+ Tonnes Annual Capacity.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* The rest of your sections go here (Technology, Plants, Catalogue, etc.) */}
+
+    </div>
+  );
+};
       
       {/* SECTION 3: HERO */}
       <section className="relative h-screen flex flex-col items-center justify-center text-center px-6">
