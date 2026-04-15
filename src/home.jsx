@@ -7,7 +7,7 @@ const BRAND = {
   name: "BLACKGOLD",
   accent: "SILICATES",
   sub: "PRIVATE LIMITED & GROUP",
-  phone: "+91 99880 75555",
+  phone: "+91 95793 47630",
   email: "blackgoldsilicates@gmail.com"
 };
 
@@ -52,7 +52,7 @@ const Home = () => {
           </div>
 
           <a href={`tel:${BRAND.phone}`} className="bg-white text-black px-5 py-2 rounded-full text-xs font-bold hover:bg-brandGold transition uppercase tracking-tighter">
-            Contact MD
+            Contact Us
           </a>
         </div>
       </nav>
