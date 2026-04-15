@@ -121,22 +121,17 @@ const WhyUs = () => {
           {/* NEW VIDEO SHOWCASE SECTION */}
           <section className="py-24 px-6 max-w-7xl mx-auto">
             <div className="relative aspect-video rounded-[40px] overflow-hidden border border-white/10 shadow-2xl bg-black group">
-              <iframe
-                className="w-full h-full scale-[1.05]" // Subtle scale to hide YouTube edges
-                /* Parameters:
-                  - autoplay=1 & mute=1: Required for browsers to allow autoplay
-                  - playlist=AsR-c_BvDRg&loop=1: Required to make the video repeat
-                  - controls=0: Hides YouTube player UI for a cleaner 'Apple' look
-                  - rel=0: Prevents showing related videos from other channels
-                */
-                src="https://www.youtube.com/embed/-xHs6kUX9gU?autoplay=1&mute=1&loop=1&playlist=AsR-c_BvDRg&controls=0&rel=0&modestbranding=1"
-                title="Blackgold Operations Showcase"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+          <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/-xHs6kUX9gU" 
+            title="BlackGold Silicates || Top-Grade Aggregates" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+          </iframe>
 
-              {/* OVERLAY: 'pointer-events-none' ensures the video remains uninterruptible and visually integrated */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 pointer-events-none" />
               
               <div className="absolute bottom-10 left-10 pointer-events-none">
