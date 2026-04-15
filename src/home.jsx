@@ -102,11 +102,11 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* SECTION 4: TECHNOLOGY (LOCKED VIDEO + SCROLLING TEXT) */}
+      {/* SECTION 4: TECHNOLOGY (LOCKED VIDEO BACKDROP) */}
       <section ref={containerRef} id="tech" className="relative h-[300vh] bg-black">
         
-        {/* THE FIXED BACKDROP: This locks the video to the screen */}
-        <div className="sticky top-0 h-screen w-full overflow-hidden">
+        {/* THE BACKDROP: This stays fixed in the viewport */}
+        <div className="sticky top-0 h-screen w-full overflow-hidden z-0">
           <motion.div 
             style={{ scale: videoScale }} 
             className="absolute inset-0 w-full h-full transform-gpu"
@@ -121,38 +121,39 @@ const Home = () => {
             >
               <source src="/SiteBG.mp4" type="video/mp4" />
             </video>
-            {/* Dark overlay to ensure white text is readable while scrolling */}
-            <div className="absolute inset-0 bg-black/40" />
+            {/* Gradients to blend the video into the black sections above and below */}
             <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
           </motion.div>
         </div>
       
-        {/* THE SCROLLING OVERLAYS: These move UP as you scroll */}
-        <div className="relative z-20 mt-[-100vh]">
-          {/* Each div is h-screen to space them out across the 300vh parent */}
-          <div className="h-screen flex flex-col items-center justify-center text-center px-6">
-            <h3 className="text-7xl md:text-9xl font-black uppercase tracking-tighter italic text-white drop-shadow-2xl">
+        {/* THE CONTENT: This scrolls OVER the video */}
+        <div className="relative z-10 -mt-[100vh]">
+          {/* First Block */}
+          <div className="h-screen flex flex-col items-center justify-center text-center px-10">
+            <h3 className="text-7xl md:text-9xl font-black uppercase tracking-tighter italic text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
               Deccan Basalt
             </h3>
-            <p className="text-brandGold text-xl md:text-3xl font-bold uppercase tracking-[0.4em] mt-4">
+            <p className="text-brandGold text-xl md:text-3xl font-bold uppercase tracking-[0.4em] mt-6 bg-black/40 backdrop-blur-sm px-6 py-2 rounded-full">
               2.7 t/m³ density for ultimate durability.
             </p>
           </div>
       
-          <div className="h-screen flex flex-col items-center justify-center text-center px-6">
-            <h3 className="text-7xl md:text-9xl font-black uppercase tracking-tighter italic text-white drop-shadow-2xl">
+          {/* Second Block */}
+          <div className="h-screen flex flex-col items-center justify-center text-center px-10">
+            <h3 className="text-7xl md:text-9xl font-black uppercase tracking-tighter italic text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
               Metso Tech
             </h3>
-            <p className="text-brandGold text-xl md:text-3xl font-bold uppercase tracking-[0.4em] mt-4">
+            <p className="text-brandGold text-xl md:text-3xl font-bold uppercase tracking-[0.4em] mt-6 bg-black/40 backdrop-blur-sm px-6 py-2 rounded-full">
               Superior cubical shape with Nordberg Series.
             </p>
           </div>
       
-          <div className="h-screen flex flex-col items-center justify-center text-center px-6">
-            <h3 className="text-7xl md:text-9xl font-black uppercase tracking-tighter italic text-white drop-shadow-2xl">
+          {/* Third Block */}
+          <div className="h-screen flex flex-col items-center justify-center text-center px-10">
+            <h3 className="text-7xl md:text-9xl font-black uppercase tracking-tighter italic text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
               CA Managed
             </h3>
-            <p className="text-brandGold text-xl md:text-3xl font-bold uppercase tracking-[0.4em] mt-4">
+            <p className="text-brandGold text-xl md:text-3xl font-bold uppercase tracking-[0.4em] mt-6 bg-black/40 backdrop-blur-sm px-6 py-2 rounded-full">
               100% Transparency & GST Compliance.
             </p>
           </div>
