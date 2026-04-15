@@ -95,12 +95,6 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* The rest of your sections go here (Technology, Plants, Catalogue, etc.) */}
-
-    </div>
-  );
-};
-      
       {/* SECTION 3: HERO */}
       <section className="relative h-screen flex flex-col items-center justify-center text-center px-6">
         <motion.div style={{ opacity: heroOpacity }}>
