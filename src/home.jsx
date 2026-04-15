@@ -101,14 +101,21 @@ const Home = () => {
       </section>
 
       {/* SECTION 4: TECHNOLOGY (SCROLL ENGINE) */}
-      <section ref={containerRef} id="tech" className="relative h-[400vh] bg-black">
-        {/* Sticky wrapper must be h-screen and top-0 */}
+      <section 
+        ref={containerRef} 
+        id="tech" 
+        className="relative h-[400vh] bg-black z-10"
+      >
+        {/* STICKY CONTAINER 
+            'top-0' locks it to the viewport. 
+            'h-screen' ensures it fills the window during the 400vh scroll.
+        */}
         <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
           
-          {/* Video Backdrop - Scaling recalibrated */}
+          {/* VIDEO BACKDROP */}
           <motion.div 
             style={{ scale: videoScale }} 
-            className="relative w-full h-full transform-gpu"
+            className="relative w-full h-full will-change-transform"
           >
             <video
               autoPlay
@@ -121,26 +128,29 @@ const Home = () => {
             >
               <source src="/SiteBG.mp4" type="video/mp4" />
             </video>
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-black/20 to-black" />
+            
+            {/* GRADIENT OVERLAY - Improved for text legibility */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+            <div className="absolute inset-0 bg-black/20" /> 
           </motion.div>
       
-          {/* Text Overlays - Adjusted ranges for 400vh height */}
-          <div className="absolute inset-0 pointer-events-none">
+          {/* FEATURE TEXT OVERLAYS */}
+          <div className="absolute inset-0 pointer-events-none z-20">
             <FeatureOverlay 
               progress={scrollYProgress} 
-              range={[0.05, 0.25]} 
+              range={[0.1, 0.28]} 
               title="Deccan Basalt" 
               desc="2.7 t/m³ density for ultimate durability." 
             />
             <FeatureOverlay 
               progress={scrollYProgress} 
-              range={[0.40, 0.60]} 
+              range={[0.42, 0.62]} 
               title="Metso Tech" 
               desc="Superior cubical shape with Nordberg Series." 
             />
             <FeatureOverlay 
               progress={scrollYProgress} 
-              range={[0.75, 0.95]} 
+              range={[0.78, 0.98]} 
               title="CA Managed" 
               desc="100% Transparency & GST Compliance." 
             />
