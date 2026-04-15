@@ -205,11 +205,21 @@ const FeatureOverlay = ({ progress, range, title, desc }) => {
   );
 };
 
-const LocationCard = ({ name, address }) => (
-  <div className="p-8 border border-white/5 rounded-3xl bg-white/[0.02] hover:border-brandGold/30 transition-colors group">
-    <MapPin size={20} className="text-brandGold mb-4 group-hover:scale-110 transition-transform" />
-    <h4 className="text-xl font-bold mb-1 uppercase tracking-tight">{name}</h4>
-    <p className="text-sm text-gray-500">{address}</p>
+const LocationCard = ({ name, address, mapUrl }) => (
+  <div className="p-8 border border-white/5 rounded-3xl bg-white/[0.02] hover:border-brandGold/30 transition-all group flex flex-col justify-between h-full">
+    <div>
+      <MapPin size={20} className="text-brandGold mb-4 group-hover:scale-110 transition-transform" />
+      <h4 className="text-xl font-bold mb-1 uppercase tracking-tight">{name}</h4>
+      <p className="text-sm text-gray-500 mb-6">{address}</p>
+    </div>
+    <a
+      href={mapUrl} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-brandGold hover:text-white transition-colors group/btn">
+      Get Directions 
+      <ArrowUpRight size={14} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+    </a>
   </div>
 );
 
