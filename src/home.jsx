@@ -78,7 +78,7 @@ const Home = () => {
           </div>
 
           <a href={`tel:${BRAND.phone}`} className="bg-white text-black px-8 py-3.5 rounded-full text-[11px] font-black uppercase tracking-widest hover:bg-brandGold hover:scale-105 transition-all shadow-lg">
-            Contact MD
+            Contact Us
           </a>
         </div>
       </nav>
@@ -237,7 +237,5 @@ const SegmentRow = ({ segment, apps, products }) => (
     <td className="py-8 text-sm font-bold text-right text-brandGold uppercase tracking-tighter whitespace-nowrap">{products}</td>
   </tr>
 );
-
-export default Home;
 
 export default Home;
